@@ -1,0 +1,80 @@
+General codes and methods:
+
+public class GeneralDAO<T> {
+ 
+    public void save(T entity) {
+        // code to save entity details to database
+    }
+ 
+    public T get(long id) {
+        // code to get details from database...
+        // ...and return a T object
+    }
+}
+
+GeneralDAO<Student> studentDAO = new GeneralDAO<Student>();
+ 
+Student newStudent = new Student();
+studentDAO.save(newStudent);
+ 
+Student oldStudent = studentDAO.get(250);
+
+public class Color<R, G, B> {
+    R red;
+    G green;
+    B blue;
+ 
+    public Color(R red, G green, B blue) {
+        this.red = red;
+        this.green = green;
+        this.blue = blue;
+    }
+}
+
+public static int count(String[] array, String item) {
+    int count = 0;
+ 
+    if (item == null) {
+        for (String s : array) {
+            if (s == null) count++;
+        }
+    } else {
+        for (String s : array) {
+            if (item.equals(s)) {
+                count++;
+            }
+        }
+    }
+ 
+    return count;
+ 
+}
+Output:
+String[] helloWorld = {"h", "e", "l", "l", "o", "w", "o", "r", "l", "d"};
+int count = count(helloWorld, "l");
+System.out.println("#occurrences of l: " + count);
+
+public static <T> int count(T[] array, T item) {
+    int count = 0;
+ 
+    if (item == null) {
+        for (T element : array) {
+            if (element == null) count++;
+        }
+    } else {
+        for (T element : array) {
+            if (item.equals(element)) {
+                count++;
+            }
+        }
+    }
+ 
+    return count;
+ 
+}
+
+Output:
+Integer[] integers = {1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0};
+int count = count(integers, 0);
+System.out.println("#occurrences of zeros: " + count);
+
